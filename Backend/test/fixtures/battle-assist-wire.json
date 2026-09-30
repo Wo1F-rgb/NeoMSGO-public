@@ -1,0 +1,1162 @@
+[
+  {
+    "name": "v3_empty",
+    "valid": true,
+    "deck": {
+      "schema_version": 3,
+      "revision": 0,
+      "selected_slot": 0,
+      "slots": [
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "v1_empty",
+    "valid": true,
+    "deck": {
+      "schema_version": 1,
+      "revision": 0,
+      "selected_slot": 0,
+      "slots": [
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "name": "v2_empty",
+    "valid": true,
+    "deck": {
+      "schema_version": 2,
+      "revision": 0,
+      "selected_slot": 0,
+      "slots": [
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "future_schema",
+    "valid": false,
+    "deck": {
+      "schema_version": 4,
+      "revision": 0,
+      "selected_slot": 0,
+      "slots": [
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "root_unknown",
+    "valid": false,
+    "deck": {
+      "schema_version": 3,
+      "revision": 0,
+      "selected_slot": 0,
+      "slots": [
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        }
+      ],
+      "multiplier": 100
+    }
+  },
+  {
+    "name": "slot_unknown",
+    "valid": false,
+    "deck": {
+      "schema_version": 3,
+      "revision": 0,
+      "selected_slot": 0,
+      "slots": [
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          },
+          "effectiveTime": 0
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "nested_unknown",
+    "valid": false,
+    "deck": {
+      "schema_version": 3,
+      "revision": 0,
+      "selected_slot": 0,
+      "slots": [
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": [],
+            "gp": 1
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "missing_assist",
+    "valid": false,
+    "deck": {
+      "schema_version": 3,
+      "revision": 0,
+      "selected_slot": 0,
+      "slots": [
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "null_module_array",
+    "valid": false,
+    "deck": {
+      "schema_version": 3,
+      "revision": 0,
+      "selected_slot": 0,
+      "slots": [
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": null,
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "null_ac_array",
+    "valid": false,
+    "deck": {
+      "schema_version": 3,
+      "revision": 0,
+      "selected_slot": 0,
+      "slots": [
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": null
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "string_schema",
+    "valid": false,
+    "deck": {
+      "schema_version": "3",
+      "revision": 0,
+      "selected_slot": 0,
+      "slots": [
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "string_revision",
+    "valid": false,
+    "deck": {
+      "schema_version": 3,
+      "revision": "0",
+      "selected_slot": 0,
+      "slots": [
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "fraction_revision",
+    "valid": false,
+    "deck": {
+      "schema_version": 3,
+      "revision": 0.5,
+      "selected_slot": 0,
+      "slots": [
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "oversize_array",
+    "valid": false,
+    "deck": {
+      "schema_version": 3,
+      "revision": 0,
+      "selected_slot": 0,
+      "slots": [
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [
+              "MSBattleAssistModuleData:X0",
+              "MSBattleAssistModuleData:X1",
+              "MSBattleAssistModuleData:X2",
+              "MSBattleAssistModuleData:X3",
+              "MSBattleAssistModuleData:X4",
+              "MSBattleAssistModuleData:X5",
+              "MSBattleAssistModuleData:X6",
+              "MSBattleAssistModuleData:X7",
+              "MSBattleAssistModuleData:X8",
+              "MSBattleAssistModuleData:X9",
+              "MSBattleAssistModuleData:X10"
+            ],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "wrong_class",
+    "valid": false,
+    "deck": {
+      "schema_version": 3,
+      "revision": 0,
+      "selected_slot": 0,
+      "slots": [
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [
+              "MSWeaponData:X"
+            ],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "null_id",
+    "valid": false,
+    "deck": {
+      "schema_version": 3,
+      "revision": 0,
+      "selected_slot": 0,
+      "slots": [
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [
+              null
+            ],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "duplicate_id",
+    "valid": false,
+    "deck": {
+      "schema_version": 3,
+      "revision": 0,
+      "selected_slot": 0,
+      "slots": [
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [
+              "MSBattleAssistModuleData:X",
+              "MSBattleAssistModuleData:X"
+            ],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "legacy_smuggled_assist",
+    "valid": false,
+    "deck": {
+      "schema_version": 2,
+      "revision": 0,
+      "selected_slot": 0,
+      "slots": [
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false,
+          "battleAssist": {
+            "moduleIds": [],
+            "acModuleIds": []
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "legacy_smuggled_shield",
+    "valid": false,
+    "deck": {
+      "schema_version": 1,
+      "revision": 0,
+      "selected_slot": 0,
+      "slots": [
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ],
+          "shield_equipped": false
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "suit_id": null,
+          "weapon_ids": [
+            null,
+            null,
+            null
+          ]
+        }
+      ]
+    }
+  }
+]

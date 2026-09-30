@@ -1,0 +1,8 @@
+{
+  "name": "neomsgo-home-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24.14.0 <25" },
+  "scripts": { "start": "node src/main.mjs", "test": "node --test --test-concurrency=1 test/*.test.mjs" }
+}

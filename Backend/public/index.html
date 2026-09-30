@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NeoMSGO アカウント管理</title><link rel="stylesheet" href="/admin.css"><script type="module" src="/admin.js"></script></head>
+<body><header><div><span class="eyebrow">NEOMSGO / HOME SERVER</span><h1>アカウント管理</h1></div><span id="server-status" class="badge">接続を確認中</span></header>
+<main><section id="login-panel" class="panel compact"><h2>このPCの管理キーで開く</h2><p>サーバーの保存先にある <code>admin.key</code> の内容を入力してください。</p>
+<form id="login-form"><label for="admin-key">管理キー</label><input id="admin-key" type="password" autocomplete="off" required><button type="submit">管理画面を開く</button></form></section>
+<p id="message" role="status" aria-live="polite"></p>
+<section id="workspace" hidden><div class="toolbar"><div><h2>保存済みアカウント</h2><p id="account-count"></p></div><div class="actions"><button id="refresh">再読込</button><button id="logout" class="secondary">管理画面からログアウト</button></div></div>
+<label for="filter">ログイン名・表示名で絞り込み</label><input id="filter" type="search" placeholder="名前を入力">
+<div class="table-wrap"><table><thead><tr><th>ログイン名 / 表示名</th><th>種別</th><th>状態</th><th>最終ログイン</th><th>編成</th></tr></thead><tbody id="accounts"></tbody></table></div>
+<details class="panel"><summary>デバッグ用のID・パスワード一覧</summary><p>ここで作成したテスト用アカウントだけ、パスワードを再表示できます。</p><form id="test-form"><label for="test-name">テスト用ログイン名</label><input id="test-name" value="debug_player1" pattern="debug_[A-Za-z0-9_.\-]+" required><button type="submit">テスト用アカウントを作成</button></form><button id="load-test-accounts" class="secondary">保存したID・パスワードを表示</button><div id="test-credentials" class="table-wrap" hidden></div></details>
+<section id="account-detail" class="panel" hidden><div class="toolbar"><div><span class="eyebrow">ACCOUNT PROFILE</span><h2 id="detail-name"></h2><p id="detail-meta"></p></div><div class="actions"><button id="reset-password" class="secondary">パスワードを再発行</button><button id="disable-account" class="secondary">利用を停止</button></div></div>
+<div id="deck" class="deck"></div><div id="password-result" class="notice" hidden><strong>新しいパスワード</strong><p>この表示を閉じると、同じパスワードを管理画面から読み直すことはできません。</p><div class="actions"><output id="temporary-password"></output><button id="copy-password">コピー</button><button id="hide-password" class="secondary">閉じる</button></div></div></section>
+</section></main><footer>この管理画面はサーバーPC内から利用できます。通常のパスワードそのものは保存・表示しません。</footer></body></html>

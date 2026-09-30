@@ -56,6 +56,7 @@ if ($secondary.Count -gt 0) {
     $displayMode = 'primary_single_monitor_fallback'
 }
 $bounds = $display.WorkingArea
+$screenBounds = $display.Bounds
 if ($bounds.Width -lt 900 -or $bounds.Height -lt 600) { throw '表示画面の作業領域が小さすぎます。' }
 
 foreach ($port in @(17980, 17788, 7787)) {
@@ -70,6 +71,44 @@ $running = @(Get-CimInstance Win32_Process -Filter "Name='UnrealEditor.exe'" -Er
     ([string]$_.CommandLine).IndexOf($project, [StringComparison]::OrdinalIgnoreCase) -ge 0
 })
 if ($running.Count -gt 0) { throw 'この公開projectのEditorは既に起動中です。' }
+
+$windowApi = @'
+using System;
+using System.Runtime.InteropServices;
+using System.Text;
+public static class PublicEditorWindowPlacement {
+    [StructLayout(LayoutKind.Sequential)] public struct Point { public int X, Y; }
+    [StructLayout(LayoutKind.Sequential)] public struct Rect { public int Left, Top, Right, Bottom; }
+    [StructLayout(LayoutKind.Sequential)] public struct WindowPlacement {
+        public uint Length, Flags, ShowCmd;
+        public Point MinPosition, MaxPosition;
+        public Rect NormalPosition;
+    }
+    [DllImport("user32.dll", SetLastError=true)] [return: MarshalAs(UnmanagedType.Bool)]
+    public static extern bool GetWindowPlacement(IntPtr handle, ref WindowPlacement placement);
+    [DllImport("user32.dll", SetLastError=true)] [return: MarshalAs(UnmanagedType.Bool)]
+    public static extern bool SetWindowPlacement(IntPtr handle, ref WindowPlacement placement);
+    [DllImport("user32.dll", SetLastError=true)] [return: MarshalAs(UnmanagedType.Bool)]
+    public static extern bool GetWindowRect(IntPtr handle, out Rect rect);
+    [DllImport("user32.dll", SetLastError=true)] [return: MarshalAs(UnmanagedType.Bool)]
+    public static extern bool SetWindowPos(IntPtr handle, IntPtr after, int x, int y, int width, int height, uint flags);
+    [DllImport("user32.dll")] [return: MarshalAs(UnmanagedType.Bool)]
+    public static extern bool IsWindowVisible(IntPtr handle);
+    [DllImport("user32.dll", CharSet=CharSet.Unicode, SetLastError=true)]
+    public static extern int GetWindowTextLength(IntPtr handle);
+    [DllImport("user32.dll", CharSet=CharSet.Unicode, SetLastError=true)]
+    public static extern int GetWindowText(IntPtr handle, StringBuilder text, int maxCount);
+    [DllImport("user32.dll", SetLastError=true)]
+    public static extern uint GetWindowThreadProcessId(IntPtr handle, out uint processId);
+}
+'@
+if ($null -eq ('PublicEditorWindowPlacement' -as [type])) {
+    Add-Type -TypeDefinition $windowApi
+}
+$placementLayout = [PublicEditorWindowPlacement+WindowPlacement]::new()
+if ([Runtime.InteropServices.Marshal]::SizeOf($placementLayout) -ne 44) {
+    throw 'WINDOWPLACEMENTのWin32構造体サイズが一致しません。'
+}
 
 if ($CheckOnly) {
     [ordered]@{ status = 'preflight_ok'; display_monitor = $display.DeviceName; display_mode = $displayMode;
@@ -87,29 +126,78 @@ $height = $bounds.Height - 40
 $arguments = @("`"$project`"", '-nosplash', '-MSAuthMode=OfflineLocal', '-MSAuthBaseUrl=http://127.0.0.1:17980',
     '-Port=7787', "-UserDir=`"$userDir`"", "-WinX=$x", "-WinY=$y", "-ResX=$width", "-ResY=$height")
 
-$windowApi = @'
-using System;
-using System.Runtime.InteropServices;
-public static class PublicEditorWindow {
-    [StructLayout(LayoutKind.Sequential)] public struct Rect { public int Left, Top, Right, Bottom; }
-    [DllImport("user32.dll")] public static extern bool GetWindowRect(IntPtr handle, out Rect rect);
-    [DllImport("user32.dll")] public static extern bool SetWindowPos(IntPtr handle, IntPtr after, int x, int y, int width, int height, uint flags);
-}
-'@
-Add-Type -TypeDefinition $windowApi
 $process = Start-Process -FilePath $EditorExe -ArgumentList $arguments -WorkingDirectory $root -PassThru
 $placed = $false
+Write-Host 'Unreal Editorの初回初期化を考慮し、最大10分間メインウィンドウを待ちます。'
 try {
-    $deadline = (Get-Date).AddSeconds(120)
+    $deadline = (Get-Date).AddSeconds(600)
+    $nextWaitNotice = (Get-Date).AddSeconds(30)
     while ((Get-Date) -lt $deadline) {
         Start-Sleep -Milliseconds 500
+        if ((Get-Date) -ge $nextWaitNotice) {
+            Write-Host 'Unreal Editorの起動処理を待機中です。'
+            $nextWaitNotice = (Get-Date).AddSeconds(30)
+        }
         $process.Refresh()
         if ($process.HasExited) { break }
         $handle = $process.MainWindowHandle
         if ($handle -eq [IntPtr]::Zero) { continue }
-        $ok = [PublicEditorWindow]::SetWindowPos($handle, [IntPtr]::Zero, $x, $y, $width, $height, 0x0014)
-        $rect = [PublicEditorWindow+Rect]::new()
-        if ($ok -and [PublicEditorWindow]::GetWindowRect($handle, [ref]$rect) -and
+
+        # MainWindowHandle may point at the startup splash. Act only after this
+        # handle belongs to the launched PID and its title identifies the editor project.
+        $ownerPid = [uint32]0
+        [void][PublicEditorWindowPlacement]::GetWindowThreadProcessId($handle, [ref]$ownerPid)
+        if ($ownerPid -ne [uint32]$process.Id -or -not [PublicEditorWindowPlacement]::IsWindowVisible($handle)) { continue }
+        $titleLength = [PublicEditorWindowPlacement]::GetWindowTextLength($handle)
+        if ($titleLength -le 0) { continue }
+        $titleBuffer = [System.Text.StringBuilder]::new($titleLength + 1)
+        [void][PublicEditorWindowPlacement]::GetWindowText($handle, $titleBuffer, $titleBuffer.Capacity)
+        $title = $titleBuffer.ToString()
+        $projectName = [IO.Path]::GetFileNameWithoutExtension($project)
+        if ($title.IndexOf($projectName, [StringComparison]::OrdinalIgnoreCase) -lt 0 -or
+            $title.IndexOf('Unreal Editor', [StringComparison]::OrdinalIgnoreCase) -lt 0) { continue }
+        $initialRect = [PublicEditorWindowPlacement+Rect]::new()
+        if (-not [PublicEditorWindowPlacement]::GetWindowRect($handle, [ref]$initialRect) -or
+            ($initialRect.Right - $initialRect.Left) -lt 800 -or
+            ($initialRect.Bottom - $initialRect.Top) -lt 500) { continue }
+
+        $placement = [PublicEditorWindowPlacement+WindowPlacement]::new()
+        $placement.Length = [Runtime.InteropServices.Marshal]::SizeOf($placement)
+        if (-not [PublicEditorWindowPlacement]::GetWindowPlacement($handle, [ref]$placement)) { continue }
+        # WINDOWPLACEMENT uses workspace coordinates; SetWindowPos uses screen
+        # coordinates. Offset the screen work-area origin against monitor Bounds
+        # so rcNormalPosition restores to the selected monitor's usable area.
+        $workOffsetX = $bounds.X - $screenBounds.X
+        $workOffsetY = $bounds.Y - $screenBounds.Y
+        $normalRect = [PublicEditorWindowPlacement+Rect]::new()
+        $normalRect.Left = $x - $workOffsetX
+        $normalRect.Top = $y - $workOffsetY
+        $normalRect.Right = $normalRect.Left + $width
+        $normalRect.Bottom = $normalRect.Top + $height
+        $placement.Flags = 0
+        $placement.ShowCmd = 4 # SW_SHOWNOACTIVATE: restore normal without activating.
+        $placement.NormalPosition = $normalRect
+        if (-not [PublicEditorWindowPlacement]::SetWindowPlacement($handle, [ref]$placement)) { continue }
+
+        # Reapply exact screen bounds without changing focus or z-order.
+        $ok = [PublicEditorWindowPlacement]::SetWindowPos($handle, [IntPtr]::Zero, $x, $y, $width, $height, 0x0014)
+        $rect = [PublicEditorWindowPlacement+Rect]::new()
+        $actualPlacement = [PublicEditorWindowPlacement+WindowPlacement]::new()
+        $actualPlacement.Length = [Runtime.InteropServices.Marshal]::SizeOf($actualPlacement)
+        $placementVerified = [PublicEditorWindowPlacement]::GetWindowPlacement($handle, [ref]$actualPlacement)
+        $normalScreenLeft = $actualPlacement.NormalPosition.Left + $workOffsetX
+        $normalScreenTop = $actualPlacement.NormalPosition.Top + $workOffsetY
+        $normalScreenRight = $actualPlacement.NormalPosition.Right + $workOffsetX
+        $normalScreenBottom = $actualPlacement.NormalPosition.Bottom + $workOffsetY
+        $normalPlacementInside = $placementVerified -and $actualPlacement.ShowCmd -eq 1 -and
+            $normalScreenLeft -ge $bounds.Left -and $normalScreenTop -ge $bounds.Top -and
+            $normalScreenRight -le $bounds.Right -and $normalScreenBottom -le $bounds.Bottom
+        $normalPlacementMatchesTarget = [Math]::Abs($normalScreenLeft - $x) -le 2 -and
+            [Math]::Abs($normalScreenTop - $y) -le 2 -and
+            [Math]::Abs($normalScreenRight - ($x + $width)) -le 2 -and
+            [Math]::Abs($normalScreenBottom - ($y + $height)) -le 2
+        if ($ok -and $normalPlacementInside -and $normalPlacementMatchesTarget -and
+            [PublicEditorWindowPlacement]::GetWindowRect($handle, [ref]$rect) -and
             $rect.Left -ge $bounds.Left -and $rect.Top -ge $bounds.Top -and
             $rect.Right -le $bounds.Right -and $rect.Bottom -le $bounds.Bottom) {
             $placed = $true

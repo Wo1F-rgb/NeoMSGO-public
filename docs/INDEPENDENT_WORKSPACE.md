@@ -1,10 +1,12 @@
+> 2026-10-01更新: GitHub公開後のfresh cloneで、新規ビルド・実描画・OfflineLocal BOT戦・射撃・帰投後の再出撃まで確認しました。[現在の検証結果](PUBLIC_PLAYTEST.md)。以下の「未確認」は2026-09-29時点の準備記録です。
+
 # 独立ワークスペース
 
 公開source copyは既存projectから独立した通常ファイルで、別projectへのlinkはありません。元projectのpath・設定・Backend dataへfallbackしない構成を保ちます。欠落したfileは公開copy側で解消し、元環境から補いません。同じUE 5.7.4を使うことはできますが、project状態やuser dataは共有しません。
 
 ## 起動と保存先
 
-Tools/Launch-PublicEditor.batまたはTools/Launch-PublicEditor.ps1を使います。CheckOnlyはWindows PowerShell 5.1で通過済みです。Editor用UserDirは公開repo内の.local/Editorへ分けられ、この場所はgitignore対象です。サブモニターが必要です。直接NeoMSGO.uprojectを開くとUserDirの分離を経由しないため推奨しません。
+Tools/Launch-PublicEditor.batまたはTools/Launch-PublicEditor.ps1を使います。CheckOnlyはWindows PowerShell 5.1で通過済みです。Editor用UserDirは公開repo内の.local/Editorへ分けられ、この場所はgitignore対象です。サブモニターがあればそちらへ開き、1台のみならメインモニターへ開きます。直接NeoMSGO.uprojectを開くとUserDirの分離を経由しないため推奨しません。
 
 fresh-assets-final UE commandletはexit 0で完了し、D側Savedの独立を再確認しました。Editor実起動・描画・game開始・interactive playからの保存は未確認です。追加のPlay processやclientにはそれぞれ異なるUserDirが必要で、その起動分離はまだ受入していません。
 

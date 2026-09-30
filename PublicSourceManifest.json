@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "kind": "neomsgo-public-source-export",
-  "status": "public_preview_playtest_in_progress_license_review_deferred_by_owner",
+  "status": "public_preview_local_play_verified_license_review_deferred_by_owner",
   "created_at_utc": "2026-09-29T12:01:22.4116126Z",
   "engine_version": "5.7.4",
   "policy_sha256": "610b5a2013c129f0cd854641e4fab5ccad1f506f6651ad20a381745c474ad6b0",
@@ -9808,8 +9808,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 3469,
-      "sha256": "675b0d69d41dd97c90181117a9fa6100b9ee3bb77238126b321c9796631327dc",
+      "bytes": 3913,
+      "sha256": "c43dba9e53ccfb831de0915473c11490538f8e4c3e62f50d7a2a78f9f2fe8b4c",
       "category": "public_docs"
     },
     {
@@ -12760,8 +12760,8 @@
     },
     {
       "path": "Tools/Launch-PublicEditor.ps1",
-      "bytes": 6386,
-      "sha256": "7fd76d15ee530388eb66a7c9916b8b5c62b10ef91e638b8f1b5cc70afd07c53b",
+      "bytes": 12269,
+      "sha256": "8d22f658d28a858b140c2d85b8081571da9704d225377609a0b8999abece8a07",
       "category": "public_launcher"
     },
     {
@@ -12784,29 +12784,43 @@
     },
     {
       "path": "docs/INDEPENDENT_WORKSPACE.md",
-      "bytes": 3366,
-      "sha256": "ffc28c58bd468b04e14360a1398461262c4b579e0a03d53b2a655d14a1d55ae2",
+      "bytes": 3750,
+      "sha256": "7ee135b4136c66b6f61585788cc80c56a4806029533503e7e0a9f8a1512499de",
       "category": "public_docs"
+    },
+    {
+      "path": "docs/PUBLIC_PLAYTEST.md",
+      "category": "publication_documentation",
+      "bytes": 2635,
+      "sha256": "d167981df532b6359982b23246710417c500b8cf6e33d9c4f9fb08940caee8e1"
     },
     {
       "path": "docs/VFX_ASSET_CREDITS.md",
       "bytes": 3173,
       "sha256": "f89ff34b7af1ef1c03cfb876de2b483cde80a314aae34e01b731c8dcd61b9d4c",
       "category": "public_docs"
+    },
+    {
+      "path": "docs/images/public-playtest-newyork.png",
+      "category": "publication_documentation",
+      "bytes": 2927719,
+      "sha256": "37a88ac13ca8792ba2b2c62ffc67b3a77006a78bfd5ee9e14fa5729088018bc7"
     }
   ],
-  "updated_at_utc": "2026-09-30T14:24:35.166963+00:00",
+  "updated_at_utc": "2026-09-30T15:10:53.785085+00:00",
   "verification": {
-    "editor_build": "passed",
-    "engine": "5.7.4",
+    "source_commit": "875780a97b824ba8533941fc50257f42cd74a5f2",
+    "anonymous_fresh_clone": true,
+    "editor_build": "passed UE 5.7.4",
     "backend_tests_passed": 28,
-    "ue_headless_tests_passed": 25,
-    "fresh_asset_dependencies": "passed",
-    "private_import_metadata_scan": "passed",
-    "launcher_check_only": "passed",
-    "public_copy_rendered_gameplay": "not_verified",
-    "friend_pc_multiplayer": "not_verified",
-    "public_published": false
+    "rendered_gameplay": "passed local 25v25 BOT, movement, rifle fire, recall, redeployment",
+    "viewport": [
+      1920,
+      1080
+    ],
+    "friend_pc": "not tested",
+    "remote_multiplayer": "not tested",
+    "report": "docs/PUBLIC_PLAYTEST.md"
   },
   "publication": {
     "repository": "https://github.com/Wo1F-rgb/NeoMSGO-public",
